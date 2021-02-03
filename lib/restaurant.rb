@@ -9,6 +9,22 @@ class Restaurant
     @dishes = []
   end
 
+  def menu_dish_names
+    menu_dishes = []
+    self.dishes.each do |dish|
+      menu_dishes << dish.upcase
+    end
+    menu_dishes
+  end
+
+  def open_for_lunch?
+    if self.opening_time.to_i < 12
+      true
+    else
+      false
+    end
+  end
+
   def add_dish(dish)
     @dishes << dish
   end
