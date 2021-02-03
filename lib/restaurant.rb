@@ -9,6 +9,19 @@ class Restaurant
     @dishes = []
   end
 
+  def ann_closing_time(hours_of_open)
+    twelve_hr_format = self.opening_time.to_i + hours_of_open
+    if twelve_hr_format > 12
+      "#{twelve_hr_format - 12}:00PM"
+    else
+      "#{twelve_hr_format}:00AM"
+    end
+  end
+
+  def announce_closing_time(hours_of_open)
+    "#{name} will be closing at #{ann_closing_time(hours_of_open)}"
+  end
+
   def menu_dish_names
     menu_dishes = []
     self.dishes.each do |dish|
