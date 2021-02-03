@@ -23,11 +23,9 @@ class Restaurant
   end
 
   def menu_dish_names
-    menu_dishes = []
-    self.dishes.each do |dish|
-      menu_dishes << dish.upcase
+    menu_dish_names = self.dishes.map do |dish|
+      dish.upcase
     end
-    menu_dishes
   end
 
   def open_for_lunch?
@@ -43,7 +41,6 @@ class Restaurant
   end
 
   def closing_time(hours_of_open)
-    tw_four_format = 0
     tw_four_format = self.opening_time.to_i + hours_of_open
     "#{tw_four_format}:00"
   end
